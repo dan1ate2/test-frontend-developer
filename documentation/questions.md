@@ -2,7 +2,7 @@
 
 ## How can you guarantee 100% uptime for your application?
 
-Answer: 
+Answer:  
 
 ## What would you do to scale up this application to handle 10,000 requests a second?
 
