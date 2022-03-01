@@ -2,7 +2,7 @@
 
 ## How can you guarantee 100% uptime for your application?
 
-Answer:  
+Answer: You cannot fully 'guarantee' 100% uptime, however there are certain things that can be done to reduce downtime.
 
 ## What would you do to scale up this application to handle 10,000 requests a second?
 
