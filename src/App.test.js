@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import ReactDOM from 'react-dom';
+import ToDoList from "./components/ToDoList";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+test('renders todo app', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<ToDoList />, div);
 });
