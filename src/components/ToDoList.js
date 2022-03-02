@@ -7,42 +7,57 @@ function ToDoList() {
     const [toDos, setToDos] = useState([]); // handle to do items, update state
 
     const addToDo = (toDo) => {
-        // if (toDo.text) console.log("Adding todo: " + toDo.text)
-        // else console.log("Empty todo...")
-        if (!toDo.text || /^\s*$/.test(toDo.text)) {
-            return;
+        try {
+            if (!toDo.text || /^\s*$/.test(toDo.text)) {
+                return;
+            }
+
+            const freshToDos = [toDo, ...toDos];
+            setToDos(freshToDos);
         }
-
-        const freshToDos = [toDo, ...toDos];
-        setToDos(freshToDos);
-
-        console.log("The current to do's:")
-        Object.keys(freshToDos).map(text => console.log(freshToDos[text])) 
+        catch (error) {
+            console.log("Error creating ToDo: " + error)
+        }
     }
 
     const doneToDo = (id) => {
-        const updatedTodos = toDos.map((toDo) => {
-          if (toDo.id === id) {
-            toDo.isComplete = !toDo.isComplete;
-          }
-          return toDo;
-        });
-        setToDos(updatedTodos);
+        try{
+            const updatedTodos = toDos.map((toDo) => {
+                if (toDo.id === id) {
+                    toDo.isComplete = !toDo.isComplete;
+                }
+                return toDo;
+            });
+            setToDos(updatedTodos);
+        }
+        catch (error) {
+            console.log("Error completing ToDo: " + error)
+        }
     };
 
     const deleteToDo = (id) => {
-        const deletedArr = [...toDos].filter((toDo) => toDo.id !== id);
-        setToDos(deletedArr);
+        try {
+            const deletedArr = [...toDos].filter((toDo) => toDo.id !== id);
+            setToDos(deletedArr);
+        }
+        catch (error) {
+            console.log("Error deleting ToDo: " + error)
+        }
     };
 
     const updateToDo = (toDoId, newValue) => {
-        if (!newValue.text || /^\s*$/.test(newValue.text)) {
-          return;
+        try {
+            if (!newValue.text || /^\s*$/.test(newValue.text)) {
+                return;
+            }
+          
+            setToDos((prev) =>
+                prev.map((item) => (item.id === toDoId ? newValue : item))
+            );
         }
-    
-        setToDos((prev) =>
-            prev.map((item) => (item.id === toDoId ? newValue : item))
-        );
+        catch (error) {
+            console.log("Error updating ToDo: " + error)
+        }
     };
 
     return (

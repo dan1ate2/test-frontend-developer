@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 
 function ToDoBase(props) {
-    // if (toDoInput.current.value) {console.log(toDoInput.current.value)}
-    // else {console.log("Empty text...")}
-
     const toDoInput = React.createRef();
     const addButton = React.createRef();
     const [toDoValue, setInputVal] = useState(props.edit ? props.edit.value : '');
